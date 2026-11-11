@@ -1,0 +1,38 @@
+{
+  "platform": "Linux-3.10.0-1160.71.1.el7.x86_64-x86_64-with-glibc2.17",
+  "processor": "x86_64",
+  "python": "3.11.5",
+  "mpirun_version": "mpirun (Open MPI) 4.1.6",
+  "compiler_version": "g++ (GCC) 13.2.0",
+  "physical_cores": 96,
+  "strong_configurations": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "weak_ranks": [
+    1,
+    2,
+    3
+  ],
+  "repetitions": 5,
+  "strong_n": 1000000,
+  "weak_n_per_rank": 250000,
+  "d": 32,
+  "k": 16,
+  "iterations": 15,
+  "mpi_bind_to_none": true
+}

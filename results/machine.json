@@ -1,0 +1,8 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "processor": "arm",
+  "python": "3.12.5",
+  "mpirun_version": "mpirun (Open MPI) 5.0.11",
+  "compiler_version": "g++-16 (Homebrew GCC 16.2.0) 16.2.0",
+  "physical_cores": "8"
+}

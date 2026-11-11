@@ -1,0 +1,19 @@
+\begin{table}[H]\centering\small
+\caption{Strong scaling, $N=1000000$, $D=32$, $K=16$, 15 iterations. Times are medians of 5 runs; ranges show minimum and maximum.}
+\begin{tabular}{rrrrrrr}\toprule
+MPI & OMP & Workers & Time (s) & Range (s) & Speedup & Efficiency \\
+\midrule
+1 & 1 & 1 & 4.103 & 4.088--4.152 & 1.00 & 100.0\% \\
+1 & 4 & 4 & 1.065 & 1.061--1.089 & 3.85 & 96.3\% \\
+2 & 4 & 8 & 0.561 & 0.556--0.572 & 7.31 & 91.4\% \\
+3 & 4 & 12 & 0.401 & 0.391--0.435 & 10.24 & 85.4\% \\
+\bottomrule\end{tabular}\label{tab:hpc-one-strong}\end{table}
+\begin{table}[H]\centering\small
+\caption{Weak scaling with 250,000 observations per MPI process and one OpenMP thread.}
+\begin{tabular}{rrrrr}\toprule
+MPI & Observations & Time (s) & Range (s) & Weak efficiency \\
+\midrule
+1 & 250,000 & 1.010 & 1.007--1.010 & 100.0\% \\
+2 & 500,000 & 1.020 & 1.017--1.025 & 99.0\% \\
+3 & 750,000 & 1.021 & 1.020--1.028 & 98.9\% \\
+\bottomrule\end{tabular}\label{tab:hpc-one-weak}\end{table}

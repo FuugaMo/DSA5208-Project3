@@ -1,0 +1,7 @@
+kmeans
+.DS_Store
+__pycache__/
+*.pyc
+report/*.aux
+report/*.log
+report/*.out

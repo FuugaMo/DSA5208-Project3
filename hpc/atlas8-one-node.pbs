@@ -1,0 +1,32 @@
+#!/bin/bash
+#PBS -q parallel
+#PBS -N dsa5208_p3_1n
+#PBS -j oe
+#PBS -l select=1:ncpus=12:mpiprocs=4:mem=40gb
+#PBS -l place=scatter
+#PBS -l walltime=02:00:00
+
+set -eo pipefail
+export LC_ALL=C
+cd "$PBS_O_WORKDIR"
+source /app1/ebenv
+module load GCC/13.2.0 OpenMPI/4.1.6-GCC-13.2.0 Python/3.11.5-GCCcore-13.2.0
+set -u
+export OMPI_MCA_plm_rsh_agent=/opt/pbs/bin/pbs_tmrsh
+
+output_dir=results/hpc-atlas8-one-node
+mkdir -p "$output_dir"
+sort -u "$PBS_NODEFILE" > "$output_dir/node_hosts.txt"
+test "$(wc -l < "$output_dir/node_hosts.txt")" -eq 1
+mpirun -np 3 hostname | sort | uniq -c > "$output_dir/rank_hosts.txt"
+
+make -B CXX=g++
+make check CXX=g++
+python3 benchmark.py \
+  --repetitions 5 \
+  --strong-n 1000000 \
+  --weak-n-per-rank 250000 \
+  --strong-configs 1x1,1x4,2x4,3x4 \
+  --weak-ranks 1,2,3 \
+  --bind-to-none \
+  --output-dir "$output_dir"
