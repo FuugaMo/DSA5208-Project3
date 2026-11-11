@@ -73,7 +73,7 @@ Per-iteration assignment cost falls roughly as $NKD/(PT)$ when observations divi
 The clusters are well separated and do not test difficult initialization or imbalance. Fixed iterations omit convergence stopping. The timings cover the iterative kernel, not end-to-end data generation. The two-node experiment establishes performance for this workload and allocation, but does not characterize larger node counts or other datasets. More difficult data and broader cluster allocations would test generality. Within the tested settings, the hybrid implementation agrees with the serial reference and scales to 24 workers across two nodes.
 
 \section{Reproducibility}
-The implementation, serial validator, measurement driver, and figure generator are included with this report. The source is built with the supplied Makefile. On a system with Open MPI, a GNU C++ compiler, and Python with Matplotlib, the following commands reproduce the validation and performance study from the project root:
+The implementation, serial validator, measurement driver, figure generator, and raw measurements are publicly available at \url{https://github.com/FuugaMo/DSA5208-Project3}. Download the repository or clone it with Git. The source is built with the supplied Makefile. On a system with Open MPI, a GNU C++ compiler, and Python with Matplotlib, the following commands reproduce the validation and performance study from the repository root:
 \begin{verbatim}
 make CXX=/path/to/g++
 make check

@@ -14,6 +14,8 @@ process's observations among threads; thread-private sums and counts avoid
 write races. Two `MPI_Allreduce` calls synchronize the sufficient statistics
 after each iteration. Empty clusters keep their previous centroid.
 
+Public source repository: https://github.com/FuugaMo/DSA5208-Project3
+
 ## Build
 
 The local build uses Open MPI and GCC 16 with OpenMP:
